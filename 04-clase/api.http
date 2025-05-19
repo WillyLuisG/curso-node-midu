@@ -1,0 +1,38 @@
+### Recuperar todas las películas
+GET http://localhost:1234/movies
+
+###Recuperar una pelicula por id
+GET http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+
+### Recuperar peliculas con flitro
+GET http://localhost:1234/movies?genre=sci-Fi
+
+### Crear una pelicula con POST
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "title": "F1",
+    "year": 2025,
+    "director": "Joseph Kosinski",
+    "duration": 148,
+    "poster": "https://media.formula1.com/image/upload/f_auto,c_limit,w_960,q_auto/t_16by9Centre/f_auto/q_auto/fom-website/2025/F1%20movie/f1_movie_poster16x9%20(1)",
+    "genre": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+],
+"rate": 10
+}
+
+### Actualizar una pelicula
+PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+"year": 2025
+}
+
+
+###BORRAR UNA PELIICULA
+DELETE http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3

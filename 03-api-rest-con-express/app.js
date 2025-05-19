@@ -1,8 +1,9 @@
 const express = require('express')
 const crypto = require('node:crypto')
 const cors = require('cors')
+
 const movies = require('./movies.json')
-const { validateMovie, validatePartialMovie } = require('./movies')
+const { validateMovie, validatePartialMovie } = require('./schemas/movies')
 
 const app = express()
 app.use(express.json())
@@ -32,6 +33,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'hola mundo' })
 })
 
+// Todos los recursos que sean MOVIES se identifica con /movies
 app.get('/movies', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*')
   const { genre } = req.query
